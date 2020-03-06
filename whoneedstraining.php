@@ -1,4 +1,12 @@
 <?php
+///////////////////////////////////////////
+// Created by Jeffric Pisuena            //
+// An algo for training                  // 
+// prioritization based on a DB          //
+// designed for a PDS                    //
+// Under GNU General Public License v3.0 //
+///////////////////////////////////////////
+
 $conn = new mysqli("localhost", "root", "root", "hris");
 
 //tbl_p_info - personal information of employee based on PDS
