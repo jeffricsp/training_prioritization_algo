@@ -36,13 +36,18 @@ foreach($emp_result as $emp_arr) {
     $train_result = $conn->query($sql);
     $t_y_att[$emp_arr['employee_id']] = "";
     foreach($train_result as $t) {
-        $ded = 50;
-        for($i=0; $i<=5; $i++) {
+        $ded = 25;
+        for($i=0; $i<=4; $i++) {
             $year = $curr_year - $i;
-            if($t['t_year']==$year) {
+            if($t['t_year']==$curr_year) {
+               $time_point = $time_point-  25;   
+            } elseif($t['t_year']=>$year) {
                 $time_point = $time_point-$ded;
             }
             $ded -= 10;
+        }
+        if($time_point < 0) {
+            $time_point = 0;
         }
         $t_y_att[$emp_arr['employee_id']] .= "$t[t_year] ";
     }
